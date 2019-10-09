@@ -5,7 +5,6 @@ Created on Wed Oct  9 07:59:12 2019
 @author: kyle
 """
 
-import pandas as pd
 import numpy as np
 
 def percentGreen(image, lightboxHue = None, turfHue = None, 
