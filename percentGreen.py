@@ -7,8 +7,6 @@ Created on Wed Oct  9 07:59:12 2019
 
 import pandas as pd
 import numpy as np
-from skimage import io as sk_io
-from skimage.color import rgb2hsv
 
 def percentGreen(image, lightboxHue = None, turfHue = None, 
                   turfSaturation = None):
