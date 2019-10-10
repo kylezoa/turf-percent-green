@@ -8,20 +8,18 @@ Kyle Cheung
 kyhcheung@ucdavis.edu
 
 Based on python 3.7
-Dependencies:
+
+External Dependencies:
     pandas
     numpy
-    scikit-image
+    opencv (cv2)
 """
 
-import os
 import pandas as pd
-import numpy as np
 import glob
 from percentGreen import percentGreen
 from date_and_serp import date_and_serp
-from skimage import io as sk_io
-from skimage.color import rgb2hsv
+import cv2
 
 # loop through a folder recursively, taking the folder name as the column name
 folder_path = r'C:\Users\kyle\Box\remote sensing turf drought Kearney\Digital images captured with lightbox\\'
@@ -44,10 +42,10 @@ for file in files:
     
     print(date, serp)
     # open up that image as a numpy 3D-array
-    rgb_image = sk_io.imread(file)
+    bgr_image = cv2.imread(file)
     
     # convert rgb to hsv
-    hsv_image = rgb2hsv(rgb_image)
+    hsv_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2HSV)
     
     # send it to the percentGreen function to return a percent value [0-1],
     # mask of the turf, and mask of the light box (references that can be used

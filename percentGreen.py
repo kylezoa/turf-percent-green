@@ -29,10 +29,10 @@ def percentGreen(image, lightboxHue = None, turfHue = None,
         turfSaturation: a list of two values from min saturation to max saturation
                         in 0 to 255
     """
-    # hue and saturation values are range 0-1, need to bring it up to 8-bit
-    # 0-255 for what is commonly in literature   
+    # hue and saturation values are range 0-179, need to scale it to
+    # 0-255 for what is commonly in literature when using fiji/imagej
     
-    hue_img = np.around((image[:, :, 0] * 255),0)
+    hue_img = np.around(((image[:, :, 0] / 179) * 255),0)
     saturation_img = np.around((image[:, :, 1] * 255),0)
 
     
